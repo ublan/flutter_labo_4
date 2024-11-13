@@ -2,27 +2,34 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_guide_2024/widgets/drawer_menu.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool isPlaying = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerMenu(), // Agrega el Drawer aqui
+      drawer: DrawerMenu(),
       appBar: AppBar(
         title: const Text(
-        'SpotyLand',
-        style: TextStyle(
-        color: Color.fromARGB(255, 122, 122, 122),
-        fontWeight: FontWeight.bold,
-        ),
+          'SpotyLand',
+          style: TextStyle(
+            color: Color.fromARGB(255, 122, 122, 122),
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: const IconThemeData(
           color: Color.fromARGB(255, 122, 122, 122),
-      ),
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -30,8 +37,8 @@ class HomeScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF7FA5C4), // Color del cielo
-              Color(0xFFE3E3E1), // Color del suelo
+              Color(0xFF7FA5C4),
+              Color(0xFFE3E3E1),
             ],
           ),
         ),
@@ -69,7 +76,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 20),
             Slider(
               value: 30,
-              max: 100,
+              max: 60,
               min: 0,
               activeColor: Colors.white,
               inactiveColor: Colors.white24,
@@ -81,11 +88,11 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Text(
-                    "1:14",
+                    "1:53",
                     style: TextStyle(color: Colors.white70),
                   ),
                   Text(
-                    "-0:08",
+                    "3:37",
                     style: TextStyle(color: Colors.white70),
                   ),
                 ],
@@ -97,28 +104,42 @@ class HomeScreen extends StatelessWidget {
               children: [
                 IconButton(
                   icon: Icon(Icons.shuffle, color: Colors.white70),
-                  onPressed: () {},
+                  onPressed: () {
+                    log('Reproduccion aleatoria');
+                  },
                 ),
                 IconButton(
                   icon: Icon(Icons.skip_previous, color: Colors.white),
                   iconSize: 36,
-                  onPressed: () {},
+                  onPressed: () {
+                    log('Anterior');
+                  },
                 ),
                 IconButton(
-                  icon: Icon(Icons.play_circle_fill, color: Colors.white),
+                  icon: Icon(
+                    isPlaying ? Icons.stop_circle : Icons.play_circle_fill,
+                    color: Colors.white,
+                  ),
                   iconSize: 64,
                   onPressed: () {
-                    log('Play button pressed');
+                    setState(() {
+                      isPlaying = !isPlaying;
+                    });
+                    log(isPlaying ? 'Cancion pausada' : 'Reproduciendo');
                   },
                 ),
                 IconButton(
                   icon: Icon(Icons.skip_next, color: Colors.white),
                   iconSize: 36,
-                  onPressed: () {},
+                  onPressed: () {
+                    log('Siguiente');
+                  },
                 ),
                 IconButton(
                   icon: Icon(Icons.repeat, color: Colors.white70),
-                  onPressed: () {},
+                  onPressed: () {
+                    log('Repetir');
+                  },
                 ),
               ],
             ),
