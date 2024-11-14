@@ -5,6 +5,7 @@ class DrawerMenu extends StatelessWidget {
     {'route': 'home', 'title': 'Home', 'subtitle': 'Home + counter app'},
     {'route': 'design', 'title': 'Diseños', 'subtitle': 'Estructura y diseño'},
     {'route': 'listview_builder', 'title': 'Listview Builder', 'subtitle': ''},
+    {'route': 'canciones', 'title': 'Canciones', 'subtitle': 'Blanco'},
     {
       'route': 'listview_separated',
       'title': 'Listview Separated',
