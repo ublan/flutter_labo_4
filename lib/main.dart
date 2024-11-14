@@ -3,6 +3,7 @@ import 'package:flutter_guide_2024/helpers/preferences.dart';
 import 'package:flutter_guide_2024/providers/theme_provider.dart';
 import 'package:flutter_guide_2024/screens/screens.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_guide_2024/screens/artistas_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         theme: tema.temaActual,
         routes: {
           'home': (context) => const HomeScreen(),
+          'artistas_screen': (context) => ArtistasScreen(),
           'design': (context) => const DesignScreen(),
           'listview_builder': (context) => const ListViewBuilderScreen(),
           'listview_separated': (context) => const ListViewSeparatedScreen(),
