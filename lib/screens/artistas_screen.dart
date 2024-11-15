@@ -17,13 +17,13 @@ class ArtistasScreen extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, 'custom_list_item',
+              Navigator.pushNamed(context, 'artistas_screen_item',
                   arguments: <String, dynamic>{
                     'avatar': elements[index][0],
                     'name': elements[index][1],
-                    'cargo': elements[index][2],
-                    'stars': elements[index][3],
-                    'favorite': elements[index][4],
+                    'genre': elements[index][2],
+                    'listeners': elements[index][3],
+                    'ranking': elements[index][4],
                   });
             },
             child: Container(
@@ -64,9 +64,7 @@ class ArtistasScreen extends StatelessWidget {
                     ),
                   ),
                   Icon(
-                    elements[index][4]
-                        ? Icons.star
-                        : Icons.star_border_outlined,
+                    elements[index][4] ? Icons.star : Icons.star_border_outlined,
                   ),
                   Text(elements[index][3].toString())
                 ],

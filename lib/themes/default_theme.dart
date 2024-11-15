@@ -8,7 +8,7 @@ class DefaultTheme {
   static final ThemeData lightTheme = ThemeData.light().copyWith(
       primaryColor: Colors.amber,
       appBarTheme: AppBarTheme(
-          backgroundColor: Colors.red, foregroundColor: Colors.white),
+          backgroundColor: Color.fromARGB(255, 122, 122, 122), foregroundColor: Colors.white),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: TextButton.styleFrom(
               backgroundColor: primary, foregroundColor: Colors.white)),
