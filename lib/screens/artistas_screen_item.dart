@@ -7,21 +7,30 @@ class ArtistasScreenItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
 
+    final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
+    final cardColor = Theme.of(context).cardColor;
+    final textColor = Theme.of(context).textTheme.bodyLarge!.color;
+    final iconColor = Theme.of(context).iconTheme.color;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(args['name']),
+        title: Text(
+          args['name'],
+          style: TextStyle(color: textColor),
+        ),
       ),
+      backgroundColor: backgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             width: double.infinity,
             height: 250,
-            color: Colors.grey[300],
+            color: cardColor,
             child: Center(
               child: Text(
                 'Imagen del Artista',
-                style: TextStyle(fontSize: 20, color: Colors.black54),
+                style: TextStyle(fontSize: 20, color: textColor),
               ),
             ),
           ),
@@ -30,44 +39,53 @@ class ArtistasScreenItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  args['name'],
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  '${args['listeners']} oyentes mensuales',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  '${args['ranking']} en el mundo',
-                  style: TextStyle(fontSize: 16, color: Colors.blue),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  '${args['genre']} 100%',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Icon(Icons.account_circle, size: 40),
-                    const SizedBox(width: 8),
-                    Text(
-                      'Publicado por ${args['name']}',
-                      style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(Icons.alternate_email, size: 30),
-                    Icon(Icons.camera_alt, size: 30),
-                    Icon(Icons.facebook, size: 30),
-                  ],
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  color: cardColor,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        args['name'],
+                        style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: textColor),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        '${args['listeners']} oyentes mensuales',
+                        style: TextStyle(fontSize: 16, color: textColor),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        args['verificado'] ? 'Verificado' : '',
+                        style: TextStyle(fontSize: 16, color: Colors.blue),
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        '${args['genre']} 100%',
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: textColor),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        children: [
+                          Icon(Icons.account_circle, size: 40, color: iconColor),
+                          const SizedBox(width: 8),
+                          Text(
+                            'Publicado por ${args['name']}',
+                            style: TextStyle(fontSize: 14, color: textColor),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(Icons.alternate_email, size: 30, color: iconColor),
+                          Icon(Icons.camera_alt, size: 30, color: iconColor),
+                          Icon(Icons.facebook, size: 30, color: iconColor),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_guide_2024/mocks/artistas_mock.dart' show elements;
 
@@ -7,9 +6,17 @@ class ArtistasScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cardColor = Theme.of(context).cardColor;
+    final textColor = Theme.of(context).textTheme.bodyLarge!.color;
+    final iconColor = Theme.of(context).iconTheme.color;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Artistas'),
+        title: Text(
+          'Artistas',
+          style: TextStyle(color: textColor),
+        ),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
@@ -23,7 +30,7 @@ class ArtistasScreen extends StatelessWidget {
                     'name': elements[index][1],
                     'genre': elements[index][2],
                     'listeners': elements[index][3],
-                    'ranking': elements[index][4],
+                    'verificado': elements[index][4],
                   });
             },
             child: Container(
@@ -31,14 +38,14 @@ class ArtistasScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: cardColor,
                 borderRadius: BorderRadius.circular(5),
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
-                      color: Color.fromARGB(31, 22, 78, 189),
-                      blurRadius: 15,
-                      spreadRadius: 5,
-                      offset: Offset(0, 6))
+                    color: Colors.grey.withOpacity(0.3),
+                    blurRadius: 5,
+                    offset: const Offset(0, 3),
+                  ),
                 ],
               ),
               child: Row(
@@ -56,17 +63,30 @@ class ArtistasScreen extends StatelessWidget {
                       children: [
                         Text(
                           elements[index][1],
-                          style: const TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            color: textColor,
+                          ),
                         ),
-                        Text(elements[index][2]),
+                        Text(
+                          elements[index][2],
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: textColor,
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   Icon(
                     elements[index][4] ? Icons.star : Icons.star_border_outlined,
+                    color: iconColor,
                   ),
-                  Text(elements[index][3].toString())
+                  Text(
+                    elements[index][3].toString(),
+                    style: TextStyle(color: textColor),
+                  ),
                 ],
               ),
             ),
