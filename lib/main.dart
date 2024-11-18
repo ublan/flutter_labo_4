@@ -4,6 +4,7 @@ import 'package:flutter_guide_2024/providers/theme_provider.dart';
 import 'package:flutter_guide_2024/screens/screens.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_guide_2024/screens/canciones_screen.dart';
+import 'package:flutter_guide_2024/screens/canciones_screen_item.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
           'design': (context) => const DesignScreen(),
           'listview_builder': (context) => const ListViewBuilderScreen(),
           'listview_separated': (context) => const ListViewSeparatedScreen(),
+          'canciones_screen_item': (context) => CancionesScreenItem(),
           'list_card': (context) => const ListCardScreen(),
           'material_library': (context) => const MaterialScreen(),
           'counter': (context) => const CounterScreen(),

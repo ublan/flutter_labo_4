@@ -9,7 +9,7 @@ class CancionesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Artistas'),
+        title: const Text('Canciones'),
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
@@ -17,14 +17,17 @@ class CancionesScreen extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, 'custom_list_item',
-                  arguments: <String, dynamic>{
-                    'avatar': elements[index][0],
-                    'name': elements[index][1],
-                    'cargo': elements[index][2],
-                    'stars': elements[index][3],
-                    'favorite': elements[index][4],
-                  });
+              Navigator.pushNamed(
+                context,
+                'canciones_screen_item',
+                arguments: <String, dynamic>{
+                  'name': elements[index][1],
+                  'genre': elements[index][2],
+                  'listeners': elements[index][3],
+                  'isFavorite': elements[index][4],
+                  
+                },
+              );
             },
             child: Container(
               height: 100,
@@ -35,20 +38,16 @@ class CancionesScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
                 boxShadow: const [
                   BoxShadow(
-                      color: Color.fromARGB(31, 22, 78, 189),
-                      blurRadius: 15,
-                      spreadRadius: 5,
-                      offset: Offset(0, 6))
+                    color: Color.fromARGB(31, 22, 78, 189),
+                    blurRadius: 15,
+                    spreadRadius: 5,
+                    offset: Offset(0, 6),
+                  )
                 ],
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    'assets/avatars/${elements[index][0]}.png',
-                    width: 50,
-                    height: 50,
-                  ),
-                  const SizedBox(width: 10),
                   Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -57,18 +56,49 @@ class CancionesScreen extends StatelessWidget {
                         Text(
                           elements[index][1],
                           style: const TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        Text(elements[index][2]),
+                        Text(
+                          elements[index][2],
+                          style: const TextStyle(
+                            fontSize: 15,
+                            color: Colors.grey,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  Icon(
-                    elements[index][4]
-                        ? Icons.star
-                        : Icons.star_border_outlined,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            elements[index][4]
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            color: elements[index][4] ? Colors.red : Colors.grey,
+                          ),
+                          const SizedBox(width: 5),
+                          Text(
+                            '${elements[index][3]}',
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+                      const Text(
+                        'Reproducciones',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
                   ),
-                  Text(elements[index][3].toString())
                 ],
               ),
             ),
@@ -78,3 +108,4 @@ class CancionesScreen extends StatelessWidget {
     );
   }
 }
+
