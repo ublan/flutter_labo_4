@@ -6,6 +6,7 @@ class DrawerMenu extends StatelessWidget {
     {'route': 'artistas_screen', 'title': 'artistas_screen', 'subtitle': 'Exposito'},
     {'route': 'design', 'title': 'Diseños', 'subtitle': 'Estructura y diseño'},
     {'route': 'listview_builder', 'title': 'Listview Builder', 'subtitle': ''},
+    {'route': 'canciones', 'title': 'Canciones', 'subtitle': 'Blanco'},
     {
       'route': 'listview_separated',
       'title': 'Listview Separated',
