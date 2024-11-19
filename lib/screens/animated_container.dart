@@ -43,7 +43,7 @@ class _ContainerStatePage extends State<AnimatedContainerScreen> {
           height: _height,
           duration: const Duration(milliseconds: 1800),
           curve: Curves.bounceIn,
-          transformAlignment: Alignment(0, 0),
+          transformAlignment: const Alignment(0, 0),
           transform: Matrix4.rotationZ(_rotation),
           decoration: BoxDecoration(color: _color, borderRadius: _borderRaduis),
           child: const Center(

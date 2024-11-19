@@ -5,6 +5,7 @@ class DrawerMenu extends StatelessWidget {
     {'route': 'home', 'title': 'Home', 'subtitle': 'Home + counter app'},
     {'route': 'design', 'title': 'Diseños', 'subtitle': 'Estructura y diseño'},
     {'route': 'listview_builder', 'title': 'Listview Builder', 'subtitle': ''},
+    {'route': 'playlists', 'title': 'Playlists', 'subtitle': 'Garcia'},
     {
       'route': 'listview_separated',
       'title': 'Listview Separated',
@@ -76,9 +77,7 @@ class DrawerMenu extends StatelessWidget {
 }
 
 class _DrawerHeaderAlternative extends StatelessWidget {
-  const _DrawerHeaderAlternative({
-    Key? key,
-  }) : super(key: key);
+  const _DrawerHeaderAlternative();
 
   @override
   Widget build(BuildContext context) {

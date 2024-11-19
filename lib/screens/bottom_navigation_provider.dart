@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class BottomNavigationProvider extends StatelessWidget {
-  BottomNavigationProvider({super.key});
+  const BottomNavigationProvider({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class BottomNavigationProvider extends StatelessWidget {
 }
 
 class ElementsButtonProvider extends StatelessWidget {
-  ElementsButtonProvider({
+  const ElementsButtonProvider({
     super.key,
   });
 
@@ -61,8 +61,8 @@ class ElementsButtonProvider extends StatelessWidget {
 
 class ElementsBodyProvider extends StatelessWidget {
   const ElementsBodyProvider({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -71,16 +71,16 @@ class ElementsBodyProvider extends StatelessWidget {
     Widget widget;
     switch (page.paginaActual) {
       case 0:
-        widget = Text('Primera Solapa');
+        widget = const Text('Primera Solapa');
         break;
       case 1:
-        widget = Text('Segunda Solapa');
+        widget = const Text('Segunda Solapa');
         break;
       case 2:
-        widget = Text('Tercer Solapa');
+        widget = const Text('Tercer Solapa');
         break;
       default:
-        widget = Text('Ninguna Solapa');
+        widget = const Text('Ninguna Solapa');
     }
     return Center(child: widget);
   }

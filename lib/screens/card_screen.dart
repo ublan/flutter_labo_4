@@ -17,12 +17,12 @@ class CardScreen extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Column(children: [
-        Image.network(this.url),
+        Image.network(url),
         const SizedBox(
           height: 15,
         ),
         Text(
-          this.title,
+          title,
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -31,11 +31,11 @@ class CardScreen extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        if (this.body != null)
+        if (body != null)
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Text(
-              this.body ?? '',
+              body ?? '',
               textAlign: TextAlign.justify,
             ),
           ),

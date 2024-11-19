@@ -35,8 +35,8 @@ class BodyProfile extends StatelessWidget {
   bool darkMode = false;
 
   BodyProfile({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class BodyProfile extends StatelessWidget {
             onChanged: (value) {
               Preferences.telefono = value;
             },
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
             initialValue: Preferences.telefono,
             keyboardType: TextInputType.phone,
             decoration: decorationInput(
@@ -73,7 +73,7 @@ class BodyProfile extends StatelessWidget {
             onChanged: (value) {
               Preferences.email = value;
             },
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
             initialValue: Preferences.email,
             keyboardType: TextInputType.emailAddress,
             decoration: decorationInput(
@@ -85,7 +85,7 @@ class BodyProfile extends StatelessWidget {
             onChanged: (value) {
               Preferences.apellido = value;
             },
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
             initialValue: Preferences.apellido,
             keyboardType: TextInputType.text,
             decoration: decorationInput(label: 'Apellido')),
@@ -96,7 +96,7 @@ class BodyProfile extends StatelessWidget {
             onChanged: (value) {
               Preferences.nombre = value;
             },
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
             initialValue: Preferences.nombre,
             keyboardType: TextInputType.text,
             decoration: decorationInput(label: 'Nombre'))
@@ -125,9 +125,9 @@ class BodyProfile extends StatelessWidget {
 
 class HeaderProfile extends StatelessWidget {
   const HeaderProfile({
-    Key? key,
+    super.key,
     required this.size,
-  }) : super(key: key);
+  });
 
   final Size size;
 

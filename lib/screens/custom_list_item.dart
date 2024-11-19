@@ -43,7 +43,7 @@ class BodyProfileCustomItem extends StatelessWidget {
   bool darkMode = false;
   Map<String, dynamic> args;
 
-  BodyProfileCustomItem({Key? key, required this.args}) : super(key: key);
+  BodyProfileCustomItem({super.key, required this.args});
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class BodyProfileCustomItem extends StatelessWidget {
         ),
         TextFormField(
             onChanged: (value) {},
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
             initialValue: args['cargo'] ?? '',
             decoration: decorationInput(
                 label: 'Cargo', helperText: 'Ingresar número sin 0 ni 15')),
@@ -71,7 +71,7 @@ class BodyProfileCustomItem extends StatelessWidget {
         ),
         TextFormField(
             onChanged: (value) {},
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
             initialValue: args['name'] ?? '',
             keyboardType: TextInputType.text,
             decoration: decorationInput(label: 'Nombre y Apellido')),
@@ -80,7 +80,7 @@ class BodyProfileCustomItem extends StatelessWidget {
         ),
         TextFormField(
             onChanged: (value) {},
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
             initialValue: args['stars'].toString(),
             keyboardType: TextInputType.text,
             decoration: decorationInput(label: 'Stars')),
@@ -109,10 +109,10 @@ class HeaderProfileCustomItem extends StatelessWidget {
   String? avatar;
 
   HeaderProfileCustomItem({
-    Key? key,
+    super.key,
     this.avatar,
     required this.size,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

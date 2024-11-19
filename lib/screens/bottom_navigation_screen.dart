@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BottomNavigationScreen extends StatelessWidget {
-  BottomNavigationScreen({super.key});
+  const BottomNavigationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class BottomNavigationScreen extends StatelessWidget {
 }
 
 class ElementsButtonWidget extends StatefulWidget {
-  ElementsButtonWidget({
+  const ElementsButtonWidget({
     super.key,
   });
 
@@ -64,8 +64,8 @@ class _ElementsButtonWidgetState extends State<ElementsButtonWidget> {
 
 class ElementsBody extends StatelessWidget {
   const ElementsBody({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

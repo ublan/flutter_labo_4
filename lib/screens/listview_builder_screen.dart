@@ -10,17 +10,17 @@ class ListViewBuilderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ListView Builder + Search'),
+        title: const Text('ListView Builder + Search'),
         actions: [
           IconButton(
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
               onPressed: () =>
                   showSearch(context: context, delegate: SearchDemo()))
         ],
       ),
       body: Center(
         child: ListView.builder(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           itemCount: 100,
           itemBuilder: (BuildContext context, int index) {
             log('posicion $index');

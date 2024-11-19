@@ -3,10 +3,10 @@ import 'package:flutter_guide_2024/helpers/preferences.dart';
 import 'package:flutter_guide_2024/providers/theme_provider.dart';
 import 'package:flutter_guide_2024/screens/screens.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_guide_2024/screens/screen_playlists.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Preferences.initShared();
+  await Preferences.initShared(); 
 
   runApp(MultiProvider(
     providers: [
@@ -47,8 +47,9 @@ class MyApp extends StatelessWidget {
           'provider_navigation_bar': (context) => BottomNavigationScreen(),
           'provider_navigation_bar_provider': (context) =>
               BottomNavigationProvider(),
-          'profile': (context) => ProfileScreen(),
+          'profile': (context) => const ProfileScreen(),
           'custom_list_item': (context) => CustomListItem(),
+          'playlists': (context) => PlaylistScreen(),
         }
         /* home: DesignScreen(), */
         );
