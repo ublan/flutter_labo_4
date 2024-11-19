@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide_2024/mocks/playlist_mock.dart';  // Importa el archivo de mock aquí
 
 class PlaylistScreen extends StatelessWidget {
-  const PlaylistScreen({Key? key}) : super(key: key);
+  const PlaylistScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
