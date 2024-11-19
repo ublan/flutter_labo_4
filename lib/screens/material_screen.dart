@@ -218,19 +218,19 @@ class MaterialScreen extends StatelessWidget {
 }
 
 class Avatar extends StatelessWidget {
-  IconData icono;
-  double? radio;
-  double? padding;
+  final IconData icono;
+  final double? radio;
+  final double? padding;
 
-  Avatar({super.key, required this.icono, this.radio, this.padding});
+  const Avatar({super.key, required this.icono, this.radio, this.padding});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(this.padding ?? 0.0),
+      padding: EdgeInsets.all(padding ?? 0.0),
       child: CircleAvatar(
-        child: Icon(this.icono),
-        radius: this.radio ?? 40,
+        radius: radio ?? 40,
+        child: Icon(icono),
       ),
     );
   }
