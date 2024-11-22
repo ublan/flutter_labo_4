@@ -28,7 +28,6 @@ class _HomeScreenState extends State<HomeScreen> {
         leadingWidth: 40,
         toolbarHeight: 80,
       ),
-      drawer: DrawerMenu(),
       body: const Center(child: Text('Hola mundo')),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.plus_one),

@@ -18,7 +18,7 @@ class PlaylistScreen extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(
                 context,
-                'custom_list_item',
+                'playlist_item_card',
                 arguments: <String, dynamic>{
                   'avatar': playlist[index][0],
                   'name': playlist[index][1],

@@ -7,8 +7,9 @@ import 'package:flutter_guide_2024/screens/canciones_screen.dart';
 import 'package:flutter_guide_2024/screens/canciones_screen_item.dart';
 import 'package:flutter_guide_2024/screens/artistas_screen.dart';
 import 'package:flutter_guide_2024/screens/artistas_screen_item.dart';
+import 'package:flutter_guide_2024/screens/playlist_item_card.dart';
 
-import 'package:flutter_guide_2024/screens/screen_playlists.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Preferences.initShared(); 
@@ -56,8 +57,8 @@ class MyApp extends StatelessWidget {
           'provider_navigation_bar_provider': (context) =>
               BottomNavigationProvider(),
           'profile': (context) => const ProfileScreen(),
-          'custom_list_item': (context) => CustomListItem(),
           'canciones': (context) => CancionesScreen(),
+          'playlist_item_card': (context) => PlaylistScreenItem(),
           'playlists': (context) => PlaylistScreen(),
         }
         /* home: DesignScreen(), */
