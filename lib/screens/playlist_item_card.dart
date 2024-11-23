@@ -18,63 +18,100 @@ class PlaylistScreenItem extends StatelessWidget {
           args['name'],
           style: TextStyle(color: textColor),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              args['favorite'] ? Icons.favorite : Icons.favorite_border,
+              color: args['favorite'] ? Colors.red : iconColor,
+            ),
+            onPressed: () {
+              // Acción para marcar como favorito
+            },
+          ),
+        ],
       ),
       backgroundColor: backgroundColor,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: double.infinity,
-            height: 250,
-            color: cardColor,
-            child: Center(
-              child: Image.asset(
-                'assets/avatars/${args['avatar']}.png',  // Asegúrate de que el archivo de imagen esté en la carpeta adecuada
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(16),
-                  color: cardColor,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        args['name'],
-                        style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: textColor),
+                  width: double.infinity,
+                  height: 250,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/avatars/${args['avatar']}.png'),
+                      fit: BoxFit.contain,
+                      colorFilter: ColorFilter.mode(
+                        Colors.black.withOpacity(0.6),
+                        BlendMode.darken,
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        '${args['cantidad']} canciones',
-                        style: TextStyle(fontSize: 16, color: textColor),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        args['favorite'] ? 'Favorito' : '',
-                        style: TextStyle(fontSize: 16, color: Colors.blue),
-                      ),
-                      const SizedBox(height: 16),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Icon(Icons.music_note, size: 30, color: iconColor),
-                          Icon(Icons.share, size: 30, color: iconColor),
-                          Icon(Icons.more_vert, size: 30, color: iconColor),
-                        ],
-                      ),
-                    ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 16,
+                  left: 16,
+                  child: Text(
+                    args['name'],
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: cardColor,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 10,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${args['cantidad']} canciones',
+                      style: TextStyle(fontSize: 16, color: textColor),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: List.generate(5, (index) => Icon(Icons.star, color: Colors.amber, size: 20)),
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconButton(
+                          icon: Icon(Icons.play_arrow, size: 30, color: iconColor),
+                          onPressed: () {
+                            // Acción para reproducir playlist
+                          },
+                        ),
+                        Icon(Icons.music_note, size: 30, color: iconColor),
+                        Icon(Icons.share, size: 30, color: iconColor),
+                        Icon(Icons.more_vert, size: 30, color: iconColor),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [

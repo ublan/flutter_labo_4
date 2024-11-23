@@ -32,43 +32,57 @@ class PlaylistScreen extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5),
+                gradient: LinearGradient(
+                  colors: [const Color.fromARGB(255, 213, 230, 245), const Color.fromARGB(255, 221, 235, 247)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(10),
                 boxShadow: const [
                   BoxShadow(
-                    color: Color.fromARGB(31, 22, 78, 189),
-                    blurRadius: 15,
-                    spreadRadius: 5,
-                    offset: Offset(0, 6),
-                  )
+                    color: Colors.black26,
+                    blurRadius: 10,
+                    offset: Offset(0, 4),
+                  ),
                 ],
               ),
               child: Row(
                 children: [
-                  Image.asset(
-                    'assets/avatars/${playlist[index][0]}.png',
-                    width: 50,
-                    height: 50,
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          playlist[index][1],
-                          style: const TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text('${playlist[index][2]} canciones'),
-                      ],
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/avatars/${playlist[index][0]}.png',
+                      width: 80,
+                      height: 80,
+                      fit: BoxFit.cover,
                     ),
                   ),
+                  const SizedBox(width: 15),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        playlist[index][1],
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      Text(
+                        '${playlist[index][2]} canciones',
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.black54,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Spacer(), // Añadimos el Spacer para empujar el icono del corazón a la derecha
                   Icon(
-                    playlist[index][3] ? Icons.star : Icons.star_border_outlined,
+                    playlist[index][3] ? Icons.favorite : Icons.favorite_border,
+                    color: playlist[index][3] ? Colors.red : const Color.fromARGB(255, 116, 94, 94),
                   ),
                 ],
               ),
