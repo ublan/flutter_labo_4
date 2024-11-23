@@ -25,7 +25,6 @@ class _CustomListScreenState extends State<CustomListScreen> {
 
   @override
   void dispose() {
-    // Limpiar el controlador al destruir el widget
     _searchController.dispose();
     _focusNode.dispose();
     super.dispose();

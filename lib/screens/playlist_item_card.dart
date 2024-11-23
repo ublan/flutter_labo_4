@@ -28,9 +28,9 @@ class PlaylistScreenItem extends StatelessWidget {
             height: 250,
             color: cardColor,
             child: Center(
-              child: Text(
-                'Imagen de la Playlist',
-                style: TextStyle(fontSize: 20, color: textColor),
+              child: Image.asset(
+                'assets/avatars/${args['avatar']}.png',  // Asegúrate de que el archivo de imagen esté en la carpeta adecuada
+                fit: BoxFit.cover,
               ),
             ),
           ),
