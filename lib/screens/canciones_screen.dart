@@ -16,19 +16,20 @@ class CancionesScreen extends StatelessWidget {
         itemCount: elements.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                'canciones_screen_item',
-                arguments: <String, dynamic>{
-                  'name': elements[index][1],
-                  'genre': elements[index][2],
-                  'listeners': elements[index][3],
-                  'isFavorite': elements[index][4],
-                  
-                },
-              );
+          onTap: () {
+        Navigator.pushNamed(
+        context,
+        'canciones_screen_item',
+        arguments: <String, dynamic>{
+        'image': 'assets/canciones/${elements[index][0]}.png', 
+        'name': elements[index][1],
+        'genre': elements[index][2],
+        'listeners': elements[index][3],
+         'isFavorite': elements[index][4],
             },
+          );
+        },
+
             child: Container(
               height: 100,
               margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
