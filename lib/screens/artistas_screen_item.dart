@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 class ArtistasScreenItem extends StatelessWidget {
-  const ArtistasScreenItem({Key? key}) : super(key: key);
+  const ArtistasScreenItem({super.key});
 
   @override
   Widget build(BuildContext context) {
