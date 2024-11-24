@@ -1,35 +1,89 @@
 import 'package:flutter/material.dart';
 
 class DefaultTheme {
-  static const Color primary = Colors.red;
+  // Colores personalizados
+  static const Color primaryLight = Color(0xFF1565C0); // Azul más oscuro para tema claro
+  static const Color secondaryLight = Color(0xFFC62828); // Rojo más oscuro para tema claro
+  static const Color accentLight = Color(0xFFFF8F00); // Ámbar oscuro para tema claro
 
+  static const Color primaryDark = Color(0xFF4A148C); // Violeta medianoche para tema oscuro
+  static const Color secondaryDark = Color(0xFF7B1FA2); // Violeta ligeramente más claro
+  static const Color accentDark = Color(0xFFCE93D8); // Acento violeta pastel para tema oscuro
+
+  // Tema claro
   static final ThemeData lightTheme = ThemeData.light().copyWith(
-    primaryColor: Colors.amber,
+    primaryColor: primaryLight,
+    scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.red,
+      backgroundColor: primaryLight,
       foregroundColor: Colors.white,
     ),
-    scaffoldBackgroundColor: Colors.white,
-    cardColor: Colors.white,
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.black),
-      bodyMedium: TextStyle(color: Colors.black),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: TextButton.styleFrom(
+        backgroundColor: primaryLight,
+        foregroundColor: Colors.white,
+      ),
     ),
-    iconTheme: const IconThemeData(color: Colors.black),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        backgroundColor: secondaryLight,
+        foregroundColor: Colors.white,
+      ),
+    ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: primaryLight,
+      foregroundColor: Colors.white,
+    ),
+    listTileTheme: const ListTileThemeData(
+      iconColor: primaryLight,
+      textColor: Colors.black87,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      floatingLabelStyle: const TextStyle(color: primaryLight),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: const BorderSide(color: primaryLight),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: const BorderSide(color: primaryLight),
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
   );
 
+  // Tema oscuro
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
-    primaryColor: Colors.greenAccent,
+    primaryColor: primaryDark,
+    scaffoldBackgroundColor: const Color(0xFF121212), // Negro grisáceo profundo
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.red,
+      backgroundColor: primaryDark,
       foregroundColor: Colors.white,
     ),
-    scaffoldBackgroundColor: Colors.black,
-    cardColor: Colors.black,
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.white),
-      bodyMedium: TextStyle(color: Colors.white),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: primaryDark,
+      foregroundColor: Colors.white,
     ),
-    iconTheme: const IconThemeData(color: Colors.white),
+    listTileTheme: const ListTileThemeData(
+      iconColor: accentDark,
+      textColor: Colors.white70,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      floatingLabelStyle: const TextStyle(color: primaryDark),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: const BorderSide(color: secondaryDark),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: const BorderSide(color: secondaryDark),
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
   );
 }
+
