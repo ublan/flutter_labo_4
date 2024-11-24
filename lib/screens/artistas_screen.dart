@@ -26,7 +26,7 @@ class ArtistasScreen extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, 'artistas_screen_item',
                   arguments: <String, dynamic>{
-                    'avatar': elements[index][0],
+                    'image': elements[index][5], // Imagen específica del artista
                     'name': elements[index][1],
                     'genre': elements[index][2],
                     'listeners': elements[index][3],
@@ -51,9 +51,16 @@ class ArtistasScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Image.asset(
-                    'assets/avatars/${elements[index][0]}.png',
+                    'assets/artistas/${elements[index][0]}.png', // Logo de Spotify
                     width: 50,
                     height: 50,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Icon(
+                        Icons.error,
+                        size: 50,
+                        color: Colors.red,
+                      );
+                    },
                   ),
                   const SizedBox(width: 10),
                   Expanded(
@@ -62,7 +69,7 @@ class ArtistasScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          elements[index][1],
+                          elements[index][1], // Nombre del artista
                           style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
@@ -70,7 +77,7 @@ class ArtistasScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          elements[index][2],
+                          elements[index][2], // Género
                           style: TextStyle(
                             fontSize: 14,
                             color: textColor,
@@ -84,7 +91,7 @@ class ArtistasScreen extends StatelessWidget {
                     color: iconColor,
                   ),
                   Text(
-                    elements[index][3].toString(),
+                    elements[index][3].toString(), // Oyentes
                     style: TextStyle(color: textColor),
                   ),
                 ],
