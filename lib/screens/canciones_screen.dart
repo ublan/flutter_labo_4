@@ -95,7 +95,7 @@ class CancionesScreen extends StatelessWidget {
                         'Reproducciones',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.grey,
+                          color: Color.fromARGB(255, 65, 65, 65),
                         ),
                       ),
                     ],

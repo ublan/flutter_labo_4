@@ -86,65 +86,132 @@ class _DrawerHeaderAlternative extends StatelessWidget {
   Widget build(BuildContext context) {
     return DrawerHeader(
       padding: EdgeInsets.zero,
-      child: Stack(children: [
-        Positioned(
-          top: -90,
-          child: Container(
-            width: 130,
-            height: 130,
-            decoration: BoxDecoration(
-                color: Colors.blueAccent.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(10)),
-            transform: Matrix4.rotationZ(0.2),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          // Fondo con degradado
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.blueAccent, Colors.purpleAccent],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
           ),
-        ),
-        Positioned(
-          bottom: 0,
-          left: 140,
-          child: Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-                color: Colors.redAccent.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(10)),
-            transform: Matrix4.rotationZ(0.9),
+          // Animación de círculos flotantes
+          Positioned(
+            top: -20,
+            left: -20,
+            child: AnimatedFloatingCircle(
+              size: 100,
+              color: Colors.blueAccent.withOpacity(0.3),
+            ),
           ),
-        ),
-        Positioned(
-          top: 30,
-          right: 35,
-          child: Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-                color: Colors.amber.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(10)),
-            transform: Matrix4.rotationZ(0.9),
+          Positioned(
+            top: 40,
+            right: -10,
+            child: AnimatedFloatingCircle(
+              size: 60,
+              color: Colors.amber.withOpacity(0.4),
+            ),
           ),
-        ),
-        Positioned(
-          top: 70,
-          right: -10,
-          child: Container(
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-                color: Colors.green.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(5)),
-            transform: Matrix4.rotationZ(0.9),
+          Positioned(
+            bottom: -20,
+            left: 70,
+            child: AnimatedFloatingCircle(
+              size: 120,
+              color: Colors.redAccent.withOpacity(0.4),
+            ),
           ),
-        ),
-        Container(
-          alignment: Alignment.bottomRight,
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: const Text(
-            '[  Menu  ]',
-            style: TextStyle(
-                fontSize: 13, color: Colors.black54, fontFamily: 'RobotoMono'),
-            textAlign: TextAlign.right,
+          // Texto animado
+          Positioned(
+            bottom: 10,
+            right: 10,
+            child: TweenAnimationBuilder(
+              tween: Tween<double>(begin: 0.8, end: 1.0),
+              duration: const Duration(seconds: 2),
+              curve: Curves.easeInOut,
+              builder: (context, scale, child) {
+                return Transform.scale(
+                  scale: scale,
+                  child: child,
+                );
+              },
+              child: const Text(
+                '[  Menu  ]',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                  fontFamily: 'RobotoMono',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ),
-        ),
-      ]),
+        ],
+      ),
     );
   }
 }
+
+/// Widget para crear un círculo animado flotante
+class AnimatedFloatingCircle extends StatefulWidget {
+  final double size;
+  final Color color;
+
+  const AnimatedFloatingCircle({
+    Key? key,
+    required this.size,
+    required this.color,
+  }) : super(key: key);
+
+  @override
+  _AnimatedFloatingCircleState createState() => _AnimatedFloatingCircleState();
+}
+
+class _AnimatedFloatingCircleState extends State<AnimatedFloatingCircle>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 3),
+      vsync: this,
+    )..repeat(reverse: true);
+
+    _animation = Tween<double>(begin: -5, end: 5).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, child) {
+        return Transform.translate(
+          offset: Offset(_animation.value, _animation.value),
+          child: Container(
+            width: widget.size,
+            height: widget.size,
+            decoration: BoxDecoration(
+              color: widget.color,
+              shape: BoxShape.circle,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+}
+
