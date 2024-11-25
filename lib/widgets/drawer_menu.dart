@@ -3,9 +3,19 @@ import 'package:flutter/material.dart';
 class DrawerMenu extends StatelessWidget {
   final List<Map<String, String>> _menuItems = <Map<String, String>>[
     {'route': 'home', 'title': 'Home', 'subtitle': 'Home + counter app'},
-    {'route': 'artistas_screen', 'title': 'artistas_screen', 'subtitle': 'Exposito'},
+    {
+      'route': 'artistas_screen',
+      'title': 'artistas_screen',
+      'subtitle': 'Exposito'
+    },
+    {
+      'route': 'artistas_screen',
+      'title': 'artistas_screen',
+      'subtitle': 'Exposito'
+    },
     {'route': 'design', 'title': 'Diseños', 'subtitle': 'Estructura y diseño'},
     {'route': 'listview_builder', 'title': 'Listview Builder', 'subtitle': ''},
+    {'route': 'playlists', 'title': 'Playlists', 'subtitle': 'Garcia'},
     {'route': 'canciones', 'title': 'Canciones', 'subtitle': 'Blanco'},
     {
       'route': 'listview_separated',
@@ -78,9 +88,7 @@ class DrawerMenu extends StatelessWidget {
 }
 
 class _DrawerHeaderAlternative extends StatelessWidget {
-  const _DrawerHeaderAlternative({
-    Key? key,
-  }) : super(key: key);
+  const _DrawerHeaderAlternative();
 
   @override
   Widget build(BuildContext context) {
@@ -214,4 +222,3 @@ class _AnimatedFloatingCircleState extends State<AnimatedFloatingCircle>
     super.dispose();
   }
 }
-

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class CreateBox extends StatelessWidget {
   double height;
   double width;

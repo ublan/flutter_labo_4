@@ -1,10 +1,9 @@
 import 'dart:developer';
 import 'package:flutter_guide_2024/mocks/people_mock.dart' show elements;
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_2024/searchs/search_demo.dart';
 
 class CustomListScreen extends StatefulWidget {
-  CustomListScreen({super.key});
+  const CustomListScreen({super.key});
 
   @override
   State<CustomListScreen> createState() => _CustomListScreenState();
@@ -26,7 +25,6 @@ class _CustomListScreenState extends State<CustomListScreen> {
 
   @override
   void dispose() {
-    // Limpiar el controlador al destruir el widget
     _searchController.dispose();
     _focusNode.dispose();
     super.dispose();
@@ -132,7 +130,7 @@ class _CustomListScreenState extends State<CustomListScreen> {
     return AnimatedSwitcher(
       switchInCurve: Curves.bounceIn,
       switchOutCurve: Curves.bounceOut,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       child: (_searchActive)
           ? Padding(
               padding: const EdgeInsets.all(8.0),
@@ -148,7 +146,7 @@ class _CustomListScreenState extends State<CustomListScreen> {
                       onFieldSubmitted: (value) {
                         _updateSearch(value);
                       },
-                      decoration: InputDecoration(hintText: 'Buscar...'),
+                      decoration: const InputDecoration(hintText: 'Buscar...'),
                     ),
                   ),
                   IconButton(
@@ -157,7 +155,7 @@ class _CustomListScreenState extends State<CustomListScreen> {
                       FocusManager.instance.primaryFocus?.unfocus();
                       _updateSearch('');
                     },
-                    icon: Icon(Icons.clear),
+                    icon: const Icon(Icons.clear),
                   ),
                   IconButton(
                     onPressed: () {
@@ -165,13 +163,13 @@ class _CustomListScreenState extends State<CustomListScreen> {
                         _searchActive = false;
                       });
                     },
-                    icon: Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back),
                   ),
                 ],
               ),
             )
           : Container(
-              padding: EdgeInsets.all(2),
+              padding: const EdgeInsets.all(2),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -179,7 +177,7 @@ class _CustomListScreenState extends State<CustomListScreen> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: Icon(Icons.keyboard_arrow_left_outlined)),
+                      icon: const Icon(Icons.keyboard_arrow_left_outlined)),
                   IconButton(
                       onPressed: () {
                         setState(() {
@@ -187,7 +185,7 @@ class _CustomListScreenState extends State<CustomListScreen> {
                         });
                         _focusNode.requestFocus();
                       },
-                      icon: Icon(Icons.search)),
+                      icon: const Icon(Icons.search)),
                 ],
               ),
             ),

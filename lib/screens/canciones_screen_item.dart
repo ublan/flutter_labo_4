@@ -13,13 +13,16 @@ class _CancionesScreenItemState extends State<CancionesScreenItem> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    isFavorite = args['isFavorite'] ?? false; // Inicializar el estado desde los argumentos
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    isFavorite = args['isFavorite'] ??
+        false; // Inicializar el estado desde los argumentos
   }
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
 
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +57,8 @@ class _CancionesScreenItemState extends State<CancionesScreenItem> {
                   children: [
                     Text(
                       args['name'],
-                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -65,7 +69,8 @@ class _CancionesScreenItemState extends State<CancionesScreenItem> {
                       child: AnimatedSwitcher(
                         duration: const Duration(milliseconds: 300),
                         transitionBuilder: (child, animation) {
-                          return ScaleTransition(scale: animation, child: child);
+                          return ScaleTransition(
+                              scale: animation, child: child);
                         },
                         child: Icon(
                           isFavorite ? Icons.favorite : Icons.favorite_border,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class InfiniteScrollScreen extends StatefulWidget {
-  const InfiniteScrollScreen({Key? key}) : super(key: key);
+  const InfiniteScrollScreen({super.key});
 
   @override
   State<InfiniteScrollScreen> createState() => _InfiniteScrollScreenState();
@@ -104,9 +104,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
 }
 
 class _LoadingIcon extends StatelessWidget {
-  const _LoadingIcon({
-    Key? key,
-  }) : super(key: key);
+  const _LoadingIcon();
 
   @override
   Widget build(BuildContext context) {

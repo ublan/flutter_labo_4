@@ -23,7 +23,7 @@ class DemoProviderScreen extends StatelessWidget {
 }
 
 class ControlNavigation extends StatelessWidget {
-  ControlNavigation({super.key});
+  const ControlNavigation({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +59,8 @@ class ControlNavigation extends StatelessWidget {
 
 class ElementsBody extends StatelessWidget {
   const ElementsBody({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -69,12 +69,12 @@ class ElementsBody extends StatelessWidget {
     print('ElementsBody  ${page.paginaActual}');
     switch (page.paginaActual) {
       case 0:
-        widget = Text('Text Body 0');
+        widget = const Text('Text Body 0');
         break;
       case 1:
-        widget = Text('Text Body 1');
+        widget = const Text('Text Body 1');
       default:
-        widget = Text('Text Body 2');
+        widget = const Text('Text Body 2');
     }
     return Center(child: widget);
   }

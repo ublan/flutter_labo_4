@@ -8,9 +8,10 @@ import 'package:flutter_guide_2024/screens/canciones_screen_item.dart';
 import 'package:flutter_guide_2024/screens/artistas_screen.dart';
 import 'package:flutter_guide_2024/screens/artistas_screen_item.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Preferences.initShared();
+  await Preferences.initShared(); 
 
   runApp(MultiProvider(
     providers: [
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           'listview_builder': (context) => const ListViewBuilderScreen(),
           'listview_separated': (context) => const ListViewSeparatedScreen(),
           'canciones_screen_item': (context) => CancionesScreenItem(),
+          
           'list_card': (context) => const ListCardScreen(),
           'material_library': (context) => const MaterialScreen(),
           'counter': (context) => const CounterScreen(),
@@ -54,9 +56,10 @@ class MyApp extends StatelessWidget {
           'provider_navigation_bar': (context) => BottomNavigationScreen(),
           'provider_navigation_bar_provider': (context) =>
               BottomNavigationProvider(),
-          'profile': (context) => ProfileScreen(),
-          'custom_list_item': (context) => CustomListItem(),
+          'profile': (context) => const ProfileScreen(),
           'canciones': (context) => CancionesScreen(),
+          'playlist_item_card': (context) => PlaylistScreenItem(),
+          'playlists': (context) => PlaylistScreen(),
         }
         /* home: DesignScreen(), */
         );
