@@ -1,9 +1,9 @@
-
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_guide_2024/mocks/canciones_mock.dart' show elements;
 
 class CancionesScreen extends StatelessWidget {
-  const CancionesScreen({super.key});
+  const CancionesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,19 +16,20 @@ class CancionesScreen extends StatelessWidget {
         itemCount: elements.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                'canciones_screen_item',
-                arguments: <String, dynamic>{
-                  'name': elements[index][1],
-                  'genre': elements[index][2],
-                  'listeners': elements[index][3],
-                  'isFavorite': elements[index][4],
-                  
-                },
-              );
+          onTap: () {
+        Navigator.pushNamed(
+        context,
+        'canciones_screen_item',
+        arguments: <String, dynamic>{
+        'image': 'assets/canciones/${elements[index][0]}.png', 
+        'name': elements[index][1],
+        'genre': elements[index][2],
+        'listeners': elements[index][3],
+         'isFavorite': elements[index][4],
             },
+          );
+        },
+
             child: Container(
               height: 100,
               margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -94,7 +95,7 @@ class CancionesScreen extends StatelessWidget {
                         'Reproducciones',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.grey,
+                          color: Color.fromARGB(255, 65, 65, 65),
                         ),
                       ),
                     ],

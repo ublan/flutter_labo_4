@@ -38,6 +38,8 @@ class MyApp extends StatelessWidget {
           'home': (context) => const HomeScreen(),
           'artistas_screen': (context) => ArtistasScreen(),
           'artistas_screen_item': (context) => ArtistasScreenItem(),
+          'artistas_screen': (context) => ArtistasScreen(),
+          'artistas_screen_item': (context) => ArtistasScreenItem(),
           'design': (context) => const DesignScreen(),
           'listview_builder': (context) => const ListViewBuilderScreen(),
           'listview_separated': (context) => const ListViewSeparatedScreen(),
