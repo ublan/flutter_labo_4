@@ -169,10 +169,10 @@ class AnimatedFloatingCircle extends StatefulWidget {
   final Color color;
 
   const AnimatedFloatingCircle({
-    Key? key,
+    super.key,
     required this.size,
     required this.color,
-  }) : super(key: key);
+  });
 
   @override
   _AnimatedFloatingCircleState createState() => _AnimatedFloatingCircleState();
