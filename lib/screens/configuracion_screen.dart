@@ -3,8 +3,8 @@ import 'package:flutter_guide_2024/helpers/preferences.dart';
 import 'package:flutter_guide_2024/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ConfiguracionScreen extends StatelessWidget {
+  const ConfiguracionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('ProfileScreen'),
+        title: const Text('Configuracion'),
         elevation: 10,
       ),
       body: SingleChildScrollView(

@@ -7,43 +7,49 @@ class CancionesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cardColor = Theme.of(context).cardColor;
+    final textColor = Theme.of(context).textTheme.bodyLarge!.color;
+    final iconColor = Theme.of(context).iconTheme.color;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Canciones'),
+        title: Text(
+          'Canciones',
+          style: TextStyle(color: textColor),
+        ),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemCount: elements.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-          onTap: () {
-        Navigator.pushNamed(
-        context,
-        'canciones_screen_item',
-        arguments: <String, dynamic>{
-        'image': 'assets/canciones/${elements[index][0]}.png', 
-        'name': elements[index][1],
-        'genre': elements[index][2],
-        'listeners': elements[index][3],
-         'isFavorite': elements[index][4],
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                'canciones_screen_item',
+                arguments: <String, dynamic>{
+                  'image': 'assets/canciones/${elements[index][0]}.png',
+                  'name': elements[index][1],
+                  'genre': elements[index][2],
+                  'listeners': elements[index][3],
+                  'isFavorite': elements[index][4],
+                },
+              );
             },
-          );
-        },
-
             child: Container(
               height: 100,
               margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: cardColor,
                 borderRadius: BorderRadius.circular(5),
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
-                    color: Color.fromARGB(31, 22, 78, 189),
-                    blurRadius: 15,
-                    spreadRadius: 5,
-                    offset: Offset(0, 6),
-                  )
+                    color: Colors.grey.withOpacity(0.3),
+                    blurRadius: 5,
+                    offset: const Offset(0, 3),
+                  ),
                 ],
               ),
               child: Row(
@@ -56,16 +62,17 @@ class CancionesScreen extends StatelessWidget {
                       children: [
                         Text(
                           elements[index][1],
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
+                            color: textColor,
                           ),
                         ),
                         Text(
                           elements[index][2],
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 15,
-                            color: Colors.grey,
+                            color: textColor?.withOpacity(0.7),
                           ),
                         ),
                       ],
@@ -81,21 +88,24 @@ class CancionesScreen extends StatelessWidget {
                             elements[index][4]
                                 ? Icons.favorite
                                 : Icons.favorite_border,
-                            color: elements[index][4] ? Colors.red : Colors.grey,
+                            color: elements[index][4] ? Colors.red : iconColor,
                           ),
                           const SizedBox(width: 5),
                           Text(
                             '${elements[index][3]}',
-                            style: const TextStyle(fontSize: 14),
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: textColor,
+                            ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 5),
-                      const Text(
+                      Text(
                         'Reproducciones',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Color.fromARGB(255, 65, 65, 65),
+                          color: textColor?.withOpacity(0.7),
                         ),
                       ),
                     ],
@@ -109,4 +119,3 @@ class CancionesScreen extends StatelessWidget {
     );
   }
 }
-

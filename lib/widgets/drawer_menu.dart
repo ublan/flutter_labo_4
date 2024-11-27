@@ -8,11 +8,6 @@ class DrawerMenu extends StatelessWidget {
       'title': 'artistas_screen',
       'subtitle': 'Exposito'
     },
-    {
-      'route': 'artistas_screen',
-      'title': 'artistas_screen',
-      'subtitle': 'Exposito'
-    },
     {'route': 'design', 'title': 'Diseños', 'subtitle': 'Estructura y diseño'},
     {'route': 'listview_builder', 'title': 'Listview Builder', 'subtitle': ''},
     {'route': 'playlists', 'title': 'Playlists', 'subtitle': 'Garcia'},
@@ -36,7 +31,7 @@ class DrawerMenu extends StatelessWidget {
     {'route': 'infinite_scroll', 'title': 'Scroll Infinito', 'subtitle': ''},
     {'route': 'custom_list', 'title': 'Custom list', 'subtitle': ''},
     {'route': 'material_library', 'title': 'Material Library', 'subtitle': ''},
-    {'route': 'profile', 'title': 'Perfil usuario', 'subtitle': ''},
+    {'route': 'configuracion', 'title': 'Configuracion', 'subtitle': ''},
     {
       'route': 'provider_navigation_bar',
       'title': 'Bottom Navigation',
