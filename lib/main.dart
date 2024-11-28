@@ -3,8 +3,6 @@ import 'package:flutter_guide_2024/helpers/preferences.dart';
 import 'package:flutter_guide_2024/providers/theme_provider.dart';
 import 'package:flutter_guide_2024/screens/screens.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_guide_2024/screens/artistas_screen.dart';
-import 'package:flutter_guide_2024/screens/artistas_screen_item.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,11 +32,6 @@ class MyApp extends StatelessWidget {
           'home': (context) => const HomeScreen(),
           'artistas_screen': (context) => ArtistasScreen(),
           'artistas_screen_item': (context) => ArtistasScreenItem(),
-<<<<<<< HEAD
-=======
-          'canciones_screen_item': (context) => CancionesScreenItem(),
->>>>>>> branch-exposito
-          'material_library': (context) => const MaterialScreen(),
           'stack': (context) => const StackScreen(),
           'configuracion': (context) => const ConfiguracionScreen(),
           'canciones': (context) => CancionesScreen(),

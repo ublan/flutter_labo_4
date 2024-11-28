@@ -3,15 +3,7 @@ import 'package:flutter/material.dart';
 class DrawerMenu extends StatelessWidget {
   final List<Map<String, String>> _menuItems = <Map<String, String>>[
     {'route': 'home', 'title': 'Home', 'subtitle': 'Home'},
-<<<<<<< HEAD
-    {
-      'route': 'artistas_screen',
-      'title': 'Artistas',
-      'subtitle': 'Exposito'
-    },
-=======
     {'route': 'artistas_screen', 'title': 'Artistas', 'subtitle': 'Exposito'},
->>>>>>> branch-exposito
     {'route': 'playlists', 'title': 'Playlists', 'subtitle': 'Garcia'},
     {'route': 'canciones', 'title': 'Canciones', 'subtitle': 'Blanco'},
     {'route': 'configuracion', 'title': 'Configuracion', 'subtitle': 'Configuracion'},
