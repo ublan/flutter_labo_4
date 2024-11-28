@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guide_2024/mocks/canciones_mock.dart' show elements;
 
 class CancionesScreen extends StatelessWidget {
-  const CancionesScreen({Key? key}) : super(key: key);
+  const CancionesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CancionesScreenItem extends StatefulWidget {
-  const CancionesScreenItem({Key? key}) : super(key: key);
+  const CancionesScreenItem({super.key});
 
   @override
   _CancionesScreenItemState createState() => _CancionesScreenItemState();
