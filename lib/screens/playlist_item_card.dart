@@ -25,7 +25,6 @@ class PlaylistScreenItem extends StatelessWidget {
               color: args['favorite'] ? Colors.red : iconColor,
             ),
             onPressed: () {
-              // Acción para marcar como favorito
             },
           ),
         ],
@@ -98,7 +97,6 @@ class PlaylistScreenItem extends StatelessWidget {
                         IconButton(
                           icon: Icon(Icons.play_arrow, size: 30, color: iconColor),
                           onPressed: () {
-                            // Acción para reproducir playlist
                           },
                         ),
                         Icon(Icons.music_note, size: 30, color: iconColor),

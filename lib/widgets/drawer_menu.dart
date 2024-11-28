@@ -2,46 +2,15 @@ import 'package:flutter/material.dart';
 
 class DrawerMenu extends StatelessWidget {
   final List<Map<String, String>> _menuItems = <Map<String, String>>[
-    {'route': 'home', 'title': 'Home', 'subtitle': 'Home + counter app'},
+    {'route': 'home', 'title': 'Home', 'subtitle': 'Home'},
     {
       'route': 'artistas_screen',
-      'title': 'artistas_screen',
+      'title': 'Artistas',
       'subtitle': 'Exposito'
     },
-    {'route': 'design', 'title': 'Diseños', 'subtitle': 'Estructura y diseño'},
-    {'route': 'listview_builder', 'title': 'Listview Builder', 'subtitle': ''},
     {'route': 'playlists', 'title': 'Playlists', 'subtitle': 'Garcia'},
     {'route': 'canciones', 'title': 'Canciones', 'subtitle': 'Blanco'},
-    {
-      'route': 'listview_separated',
-      'title': 'Listview Separated',
-      'subtitle': ''
-    },
-    {'route': 'list_card', 'title': 'Listview Cards', 'subtitle': ''},
-    {
-      'route': 'animated_container',
-      'title': 'Animated Cointainer',
-      'subtitle': ''
-    },
-    {'route': 'counter', 'title': 'Counter', 'subtitle': ''},
-    {'route': 'flexbox', 'title': 'Ejemplos de Flexbox', 'subtitle': ''},
-    {'route': 'swipper_card', 'title': 'Card Swipper', 'subtitle': ''},
-    {'route': 'alert', 'title': 'Alertas', 'subtitle': ''},
-    {'route': 'stack', 'title': 'Stack', 'subtitle': ''},
-    {'route': 'infinite_scroll', 'title': 'Scroll Infinito', 'subtitle': ''},
-    {'route': 'custom_list', 'title': 'Custom list', 'subtitle': ''},
-    {'route': 'material_library', 'title': 'Material Library', 'subtitle': ''},
-    {'route': 'configuracion', 'title': 'Configuracion', 'subtitle': ''},
-    {
-      'route': 'provider_navigation_bar',
-      'title': 'Bottom Navigation',
-      'subtitle': 'Manejo con SetState'
-    },
-    {
-      'route': 'provider_navigation_bar_provider',
-      'title': 'Bottom Navigation',
-      'subtitle': '(Provider demo)'
-    },
+    {'route': 'configuracion', 'title': 'Configuracion', 'subtitle': 'Configuracion'},
   ];
 
   DrawerMenu({super.key});

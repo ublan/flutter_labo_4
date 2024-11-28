@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_2024/mocks/playlist_mock.dart';  // Importa el archivo de mock aquí
+import 'package:flutter_guide_2024/mocks/playlist_mock.dart'; 
 
 class PlaylistScreen extends StatelessWidget {
   const PlaylistScreen({super.key});
@@ -12,7 +12,7 @@ class PlaylistScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
-        itemCount: playlist.length, // Usamos la lista importada
+        itemCount: playlist.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
@@ -79,7 +79,7 @@ class PlaylistScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Spacer(), // Añadimos el Spacer para empujar el icono del corazón a la derecha
+                  Spacer(),
                   Icon(
                     playlist[index][3] ? Icons.favorite : Icons.favorite_border,
                     color: playlist[index][3] ? Colors.red : const Color.fromARGB(255, 116, 94, 94),
