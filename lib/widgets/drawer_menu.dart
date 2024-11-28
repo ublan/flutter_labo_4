@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 class DrawerMenu extends StatelessWidget {
   final List<Map<String, String>> _menuItems = <Map<String, String>>[
     {'route': 'home', 'title': 'Home', 'subtitle': 'Home'},
+<<<<<<< HEAD
     {
       'route': 'artistas_screen',
       'title': 'Artistas',
       'subtitle': 'Exposito'
     },
+=======
+    {'route': 'artistas_screen', 'title': 'Artistas', 'subtitle': 'Exposito'},
+>>>>>>> branch-exposito
     {'route': 'playlists', 'title': 'Playlists', 'subtitle': 'Garcia'},
     {'route': 'canciones', 'title': 'Canciones', 'subtitle': 'Blanco'},
     {'route': 'configuracion', 'title': 'Configuracion', 'subtitle': 'Configuracion'},
@@ -37,10 +41,8 @@ class DrawerMenu extends StatelessWidget {
                             style: const TextStyle(
                                 fontFamily: 'RobotoMono', fontSize: 11)),
                         leading: const Icon(Icons.arrow_right),
-                        /* trailing: const Icon(Icons.arrow_right), */
                         onTap: () {
                           Navigator.pop(context);
-                          //Navigator.pushReplacementNamed(context, item['route']!);
                           Navigator.pushNamed(context, item['route']!);
                         },
                       ))
@@ -61,7 +63,6 @@ class _DrawerHeaderAlternative extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          // Fondo con degradado
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -71,7 +72,6 @@ class _DrawerHeaderAlternative extends StatelessWidget {
               ),
             ),
           ),
-          // Animación de círculos flotantes
           Positioned(
             top: -20,
             left: -20,
@@ -96,7 +96,6 @@ class _DrawerHeaderAlternative extends StatelessWidget {
               color: Colors.redAccent.withOpacity(0.4),
             ),
           ),
-          // Texto animado
           Positioned(
             bottom: 10,
             right: 10,
@@ -127,7 +126,6 @@ class _DrawerHeaderAlternative extends StatelessWidget {
   }
 }
 
-/// Widget para crear un círculo animado flotante
 class AnimatedFloatingCircle extends StatefulWidget {
   final double size;
   final Color color;

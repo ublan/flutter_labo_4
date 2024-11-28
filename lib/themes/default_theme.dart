@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class DefaultTheme {
+<<<<<<< HEAD
   static const Color primaryLight = Color(0xFF1565C0);
+=======
+  static const Color primaryLight = Color(0xFF1565C0); 
+>>>>>>> branch-exposito
   static const Color secondaryLight = Color(0xFFC62828);
   static const Color accentLight = Color(0xFFFF8F00);
 
