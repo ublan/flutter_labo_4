@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
 class DefaultTheme {
-  // Colores personalizados
-  static const Color primaryLight = Color(0xFF1565C0); // Azul más oscuro para tema claro
-  static const Color secondaryLight = Color(0xFFC62828); // Rojo más oscuro para tema claro
-  static const Color accentLight = Color(0xFFFF8F00); // Ámbar oscuro para tema claro
+  static const Color primaryLight = Color(0xFF1565C0); 
+  static const Color secondaryLight = Color(0xFFC62828);
+  static const Color accentLight = Color(0xFFFF8F00);
 
-  static const Color primaryDark = Color(0xFF4A148C); // Violeta medianoche para tema oscuro
-  static const Color secondaryDark = Color(0xFF7B1FA2); // Violeta ligeramente más claro
-  static const Color accentDark = Color(0xFFCE93D8); // Acento violeta pastel para tema oscuro
+  static const Color primaryDark = Color(0xFF4A148C);
+  static const Color secondaryDark = Color(0xFF7B1FA2);
+  static const Color accentDark = Color(0xFFCE93D8);
 
-  // Tema claro
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     primaryColor: primaryLight,
     scaffoldBackgroundColor: Colors.white,
@@ -54,10 +52,9 @@ class DefaultTheme {
     ),
   );
 
-  // Tema oscuro
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
     primaryColor: primaryDark,
-    scaffoldBackgroundColor: const Color(0xFF121212), // Negro grisáceo profundo
+    scaffoldBackgroundColor: const Color(0xFF121212),
     appBarTheme: const AppBarTheme(
       backgroundColor: primaryDark,
       foregroundColor: Colors.white,

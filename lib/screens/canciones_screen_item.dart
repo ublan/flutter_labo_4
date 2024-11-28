@@ -16,7 +16,7 @@ class _CancionesScreenItemState extends State<CancionesScreenItem> {
     final args =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     isFavorite = args['isFavorite'] ??
-        false; // Inicializar el estado desde los argumentos
+        false;
   }
 
   @override
@@ -63,7 +63,7 @@ class _CancionesScreenItemState extends State<CancionesScreenItem> {
                     GestureDetector(
                       onTap: () {
                         setState(() {
-                          isFavorite = !isFavorite; // Cambia el estado
+                          isFavorite = !isFavorite;
                         });
                       },
                       child: AnimatedSwitcher(

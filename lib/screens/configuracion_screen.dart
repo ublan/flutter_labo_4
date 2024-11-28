@@ -113,12 +113,6 @@ class BodyProfile extends StatelessWidget {
       helperText: helperText,
       helperStyle: const TextStyle(fontSize: 16),
       prefixIcon: (icon != null) ? Icon(icon) : null,
-      /*   border: const UnderlineInputBorder(
-            borderSide: BorderSide(width: 1, color: Colors.red)),
-        focusedBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(width: 3, color: Colors.blue)),
-        enabledBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(width: 2, color: Colors.green)) */
     );
   }
 }
@@ -140,8 +134,6 @@ class HeaderProfile extends StatelessWidget {
       child: Center(
         child: CircleAvatar(
           radius: 100,
-          // child: Image.network('https://cdn2.iconfinder.com/data/icons/flat-style-svg-icons-part-1/512/user_man_male_profile_account-512.png'),
-          // child: Icon(Icons.supervised_user_circle_sharp, size: 200,)
           child: Image.asset('assets/images/avatar.png'),
         ),
       ),

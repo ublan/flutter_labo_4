@@ -26,7 +26,7 @@ class ArtistasScreen extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, 'artistas_screen_item',
                   arguments: <String, dynamic>{
-                    'image': elements[index][5], // Imagen específica del artista
+                    'image': elements[index][5],
                     'name': elements[index][1],
                     'genre': elements[index][2],
                     'listeners': elements[index][3],
@@ -51,7 +51,7 @@ class ArtistasScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Image.asset(
-                    'assets/artistas/${elements[index][0]}.png', // Logo de Spotify
+                    'assets/artistas/${elements[index][0]}.png',
                     width: 50,
                     height: 50,
                     errorBuilder: (context, error, stackTrace) {
@@ -69,7 +69,7 @@ class ArtistasScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          elements[index][1], // Nombre del artista
+                          elements[index][1],
                           style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
@@ -77,7 +77,7 @@ class ArtistasScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          elements[index][2], // Género
+                          elements[index][2],
                           style: TextStyle(
                             fontSize: 14,
                             color: textColor,
@@ -91,7 +91,7 @@ class ArtistasScreen extends StatelessWidget {
                     color: iconColor,
                   ),
                   Text(
-                    elements[index][3].toString(), // Oyentes
+                    elements[index][3].toString(),
                     style: TextStyle(color: textColor),
                   ),
                 ],
