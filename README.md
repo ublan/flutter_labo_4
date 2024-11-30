@@ -1,5 +1,4 @@
 # SpotyLand - Simulación Spotify App
-![spotify-logo-green](https://github.com/user-attachments/assets/e31fbb29-90a8-4522-9143-e757f33c44e5)
 
 Una aplicación educativa que explora los fundamentos de Flutter, presentando ejemplos prácticos de widgets y estructuras comunes.
 
