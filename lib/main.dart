@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
           'home': (context) => const HomeScreen(),
           'artistas_screen': (context) => ArtistasScreen(),
           'artistas_screen_item': (context) => ArtistasScreenItem(),
-          'stack': (context) => const StackScreen(),
           'configuracion': (context) => const ConfiguracionScreen(),
           'canciones': (context) => CancionesScreen(),
           'canciones_screen_item': (context) => CancionesScreenItem(),
