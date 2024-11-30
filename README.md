@@ -1,4 +1,5 @@
 # SpotyLand - Simulación Spotify App
+![spotify-logo-green](https://github.com/user-attachments/assets/19c551bb-15e1-47bf-93b3-54b6a689c204)
 
 Una aplicación educativa que explora los fundamentos de Flutter, presentando ejemplos prácticos de widgets y estructuras comunes.
 
@@ -25,6 +26,8 @@ Una aplicación educativa que explora los fundamentos de Flutter, presentando ej
 
 ## Ejemplo de imágenes de la aplicación  
 
-### Inicio:
+### Pantalla Home:
+![home_example](https://github.com/user-attachments/assets/eb4b8ae0-6f20-4c5f-9709-6f9f42cf1280)
 
-### Menu de inicio:
+### Pantalla Drawer Menu:
+![home_menu_example](https://github.com/user-attachments/assets/f09a3cff-6e22-4774-a712-eeac93fc1bd2)
