@@ -1,19 +1,30 @@
-# flutter_guide_2024
+# SpotyLand - Simulación Spotify App
 
-Proyecto guía que muestra el uso de los diferentes Widgets de Flutter.
+Una aplicación educativa que explora los fundamentos de Flutter, presentando ejemplos prácticos de widgets y estructuras comunes.
 
-## Configurar e instalación de flutter
-- [get started](https://docs.flutter.dev/get-started/codelab)
+## Requisitos previos
+- [Flutter SDK](https://docs.flutter.dev/get-started/install)
+- [Visual Studio Code](https://code.visualstudio.com/download)
 
-## Ejemplos prácticos
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Instalación
+- Clonar el repositorio (git clone)
+- Navegar al directorio del proyecto (cd flutter_labo_4)
+- Instalar las dependencias (flutter pub get)
+
+## Ejecución de aplicación
+- Conectar un dispositivo o emulador
+- Ejecutar (flutter run)
+
+## Estructura del proyecto
+- lib/: Contiene el código fuente principal de la aplicación.
+- assets/: Incluye recursos como imágenes y archivos de audio utilizados en la aplicación.
+- pubspec.yaml: Archivo de configuración que especifica las dependencias y activos del proyecto.
 
 ## Documentación de ayuda
 [online documentation](https://docs.flutter.dev/)
 
-## Catalogo de Widgets
-[Widget catalog](https://docs.flutter.dev/ui/widgets/)
+## Ejemplo de imágenes de la aplicación  
 
+### Inicio:
 
-## Screenshots
-![Demo Home](assets/images/demo.jpg)
+### Menu de inicio:
