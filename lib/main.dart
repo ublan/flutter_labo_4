@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_2024/helpers/preferences.dart';
-import 'package:flutter_guide_2024/providers/theme_provider.dart';
-import 'package:flutter_guide_2024/screens/screens.dart';
+import 'package:spotyland/helpers/preferences.dart';
+import 'package:spotyland/providers/theme_provider.dart';
+import 'package:spotyland/screens/screens.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

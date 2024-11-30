@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_2024/themes/default_theme.dart';
+import 'package:spotyland/themes/default_theme.dart';
 
 class ThemeProvider extends ChangeNotifier {
   ThemeData temaActual;

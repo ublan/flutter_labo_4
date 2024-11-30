@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_2024/widgets/drawer_menu.dart';
+import 'package:spotyland/widgets/drawer_menu.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

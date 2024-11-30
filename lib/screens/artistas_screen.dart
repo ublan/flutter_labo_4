@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_2024/mocks/artistas_mock.dart' show elements;
+import 'package:spotyland/mocks/artistas_mock.dart' show elements;
 
 class ArtistasScreen extends StatelessWidget {
   const ArtistasScreen({super.key});

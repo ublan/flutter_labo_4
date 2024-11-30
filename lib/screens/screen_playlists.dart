@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_guide_2024/mocks/playlist_mock.dart'; 
+import 'package:spotyland/mocks/playlist_mock.dart'; 
 
 class PlaylistScreen extends StatelessWidget {
   const PlaylistScreen({super.key});
