@@ -37,6 +37,8 @@ class MyApp extends StatelessWidget {
           'canciones_screen_item': (context) => CancionesScreenItem(),
           'playlist_item_card': (context) => PlaylistScreenItem(),
           'playlists': (context) => PlaylistScreen(),
+          'albums_screen_item': (context) => AlbumsScreenItem(),
+          'albums': (context) => AlbumsScreen(),
         }
         );
   }

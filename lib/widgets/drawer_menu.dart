@@ -6,6 +6,7 @@ class DrawerMenu extends StatelessWidget {
     {'route': 'artistas_screen', 'title': 'Artistas', 'subtitle': 'Exposito'},
     {'route': 'playlists', 'title': 'Playlists', 'subtitle': 'Garcia'},
     {'route': 'canciones', 'title': 'Canciones', 'subtitle': 'Blanco'},
+    {'route': 'albums', 'title': 'Albums', 'subtitle': 'Auday'},
     {'route': 'configuracion', 'title': 'Configuracion', 'subtitle': 'Configuracion'},
   ];
 
