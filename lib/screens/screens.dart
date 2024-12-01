@@ -6,3 +6,5 @@ export 'package:spotyland/screens/canciones_screen.dart';
 export 'package:spotyland/screens/canciones_screen_item.dart';
 export 'package:spotyland/screens/artistas_screen.dart';
 export 'package:spotyland/screens/artistas_screen_item.dart';
+export 'package:spotyland/screens/albums_screen.dart';
+export 'package:spotyland/screens/albums_screen_item.dart';
