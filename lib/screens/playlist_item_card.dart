@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'playlist.dart';// Importas la clase Datum desde el archivo donde esté definida.
 
 class PlaylistScreenItem extends StatelessWidget {
   const PlaylistScreenItem({super.key});
@@ -6,15 +7,16 @@ class PlaylistScreenItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Intentamos obtener los argumentos pasados a la ruta
-    final args = ModalRoute.of(context)!.settings.arguments;
+    final playlist = ModalRoute.of(context)!.settings.arguments as Datum?;
 
-    // Si los argumentos son nulos o no contienen las claves necesarias, usamos un dato predeterminado
-    final playlistData = args is Map<String, dynamic> ? args : {
-      'name': 'Mi Playlist',
-      'favorite': true,
-      'avatar': 'http://link_a_imagen_de_avatar.jpg',
-      'cantidad': 10,
-    };
+    // Si los argumentos no contienen un objeto Playlist, usamos un dato predeterminado
+    final playlistData = playlist ?? Datum(
+      avatar: 'avatar1',
+      nameplaylist: 'Mi Playlist',
+      cantidad: 10,
+      favorites: true,
+      idplaylist: 'id1',
+    );
 
     final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
     final cardColor = Theme.of(context).cardColor;
@@ -24,16 +26,17 @@ class PlaylistScreenItem extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          playlistData['name'],
+          playlistData.nameplaylist,
           style: TextStyle(color: textColor),
         ),
         actions: [
           IconButton(
             icon: Icon(
-              playlistData['favorite'] ? Icons.favorite : Icons.favorite_border,
-              color: playlistData['favorite'] ? Colors.red : iconColor,
+              playlistData.favorites ? Icons.favorite : Icons.favorite_border,
+              color: playlistData.favorites ? Colors.red : iconColor,
             ),
             onPressed: () {
+              // Acción al presionar el botón de favoritos
             },
           ),
         ],
@@ -50,9 +53,9 @@ class PlaylistScreenItem extends StatelessWidget {
                   height: 250,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: playlistData['avatar'].startsWith('http')
-                          ? NetworkImage(playlistData['avatar'])
-                          : AssetImage('assets/avatars/${playlistData['avatar']}.png') as ImageProvider,
+                      image: playlistData.avatar.startsWith('http')
+                          ? NetworkImage(playlistData.avatar)
+                          : AssetImage('assets/avatars/${playlistData.avatar}.png') as ImageProvider,
                       fit: BoxFit.cover,
                       colorFilter: ColorFilter.mode(
                         Colors.black.withOpacity(0.6),
@@ -65,7 +68,7 @@ class PlaylistScreenItem extends StatelessWidget {
                   bottom: 16,
                   left: 16,
                   child: Text(
-                    playlistData['name'],
+                    playlistData.nameplaylist,
                     style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -94,7 +97,7 @@ class PlaylistScreenItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${playlistData['cantidad']} canciones',
+                      '${playlistData.cantidad} canciones',
                       style: TextStyle(fontSize: 16, color: textColor),
                     ),
                     const SizedBox(height: 8),
@@ -110,11 +113,15 @@ class PlaylistScreenItem extends StatelessWidget {
                       children: [
                         IconButton(
                           icon: Icon(Icons.play_arrow, size: 50, color: iconColor),
-                          onPressed: () {},
+                          onPressed: () {
+                            // Acción al presionar el botón de reproducción
+                          },
                         ),
                         IconButton(
                           icon: Icon(Icons.shuffle, size: 50, color: iconColor),
-                          onPressed: () {},
+                          onPressed: () {
+                            // Acción al presionar el botón de shuffle
+                          },
                         ),
                       ],
                     ),
