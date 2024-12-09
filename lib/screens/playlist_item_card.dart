@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'playlist.dart';// Importas la clase Datum desde el archivo donde esté definida.
+import 'playlist.dart';
 
 class PlaylistScreenItem extends StatelessWidget {
   const PlaylistScreenItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Intentamos obtener los argumentos pasados a la ruta
+    
     final playlist = ModalRoute.of(context)!.settings.arguments as Datum?;
 
-    // Si los argumentos no contienen un objeto Playlist, usamos un dato predeterminado
+   
     final playlistData = playlist ?? Datum(
       avatar: 'avatar1',
       nameplaylist: 'Mi Playlist',
@@ -36,7 +36,7 @@ class PlaylistScreenItem extends StatelessWidget {
               color: playlistData.favorites ? Colors.red : iconColor,
             ),
             onPressed: () {
-              // Acción al presionar el botón de favoritos
+             
             },
           ),
         ],
@@ -114,13 +114,13 @@ class PlaylistScreenItem extends StatelessWidget {
                         IconButton(
                           icon: Icon(Icons.play_arrow, size: 50, color: iconColor),
                           onPressed: () {
-                            // Acción al presionar el botón de reproducción
+                           
                           },
                         ),
                         IconButton(
                           icon: Icon(Icons.shuffle, size: 50, color: iconColor),
                           onPressed: () {
-                            // Acción al presionar el botón de shuffle
+                            
                           },
                         ),
                       ],

@@ -23,7 +23,7 @@ class PlaylistScreen extends StatelessWidget {
           } else if (!snapshot.hasData || snapshot.data!.data.isEmpty) {
             return const Center(child: Text('No playlists available'));
           } else {
-            final playlists = snapshot.data!.data; // Accede a la lista de datos
+            final playlists = snapshot.data!.data; 
 
             return ListView.builder(
               physics: const BouncingScrollPhysics(),

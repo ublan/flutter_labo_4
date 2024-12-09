@@ -9,7 +9,7 @@ class PlaylistService {
       final response = await http.get(Uri.parse(apiUrl));
 
       if (response.statusCode == 200) {
-        return playlistFromJson(response.body); // Decodifica y retorna el modelo
+        return playlistFromJson(response.body); 
       } else {
         throw Exception('Error al cargar las playlists');
       }
