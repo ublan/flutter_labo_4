@@ -71,7 +71,7 @@ class PlaylistScreen extends StatelessWidget {
                                   height: 80,
                                   fit: BoxFit.cover,
                                   errorBuilder: (context, error, stackTrace) => Icon(
-                                    Icons.broken_image,
+                                    Icons.music_video,
                                     size: 80,
                                     color: Colors.grey,
                                   ),
