@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'cancion.dart';
 
 class CancionesScreenItem extends StatefulWidget {
   const CancionesScreenItem({super.key});
@@ -8,25 +9,53 @@ class CancionesScreenItem extends StatefulWidget {
 }
 
 class _CancionesScreenItemState extends State<CancionesScreenItem> {
-  late bool isFavorite;
+  late Datum cancion;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final args =
-        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    isFavorite = args['isFavorite'] ??
-        false;
-  }
 
+    final args = ModalRoute.of(context)?.settings.arguments;
+
+    if (args is Map<String, dynamic>) {
+      // Acceder a los valores del Map y crear el objeto Datum
+      cancion = Datum(
+        image: args['image'] ?? 'assets/images/default.png',
+        nombre: args['name'] ?? 'Canción Desconocida',
+        genero: args['genre'] ?? 'Género Desconocido',
+        reproducciones: args['listeners'] ?? 0,
+        isfavorite: args['isFavorite'] ?? false,
+      );
+    } else {
+      // Asignar valores predeterminados en caso de error o datos vacíos
+      cancion = Datum(
+        image: 'assets/images/default.png',
+        nombre: 'Canción Desconocida',
+        genero: 'Género Desconocido',
+        reproducciones: 0,
+        isfavorite: false,
+      );
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
-    final args =
-        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(args['name']),
+        title: Text(cancion.nombre),
+        actions: [
+          IconButton(
+            icon: Icon(
+              cancion.isfavorite ? Icons.favorite : Icons.favorite_border,
+              color: cancion.isfavorite ? Colors.red : Colors.white,
+            ),
+            onPressed: () {
+              setState(() {
+                cancion.isfavorite = !cancion.isfavorite;
+              });
+            },
+          ),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,9 +64,9 @@ class _CancionesScreenItemState extends State<CancionesScreenItem> {
             width: double.infinity,
             height: 250,
             color: Colors.grey[300],
-            child: args['image'] != null
+            child: cancion.image.isNotEmpty
                 ? Image.asset(
-                    args['image'],
+                    cancion.image,
                     fit: BoxFit.cover,
                   )
                 : Center(
@@ -52,45 +81,22 @@ class _CancionesScreenItemState extends State<CancionesScreenItem> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      args['name'],
-                      style:
-                          TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isFavorite = !isFavorite;
-                        });
-                      },
-                      child: AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 300),
-                        transitionBuilder: (child, animation) {
-                          return ScaleTransition(
-                              scale: animation, child: child);
-                        },
-                        child: Icon(
-                          isFavorite ? Icons.favorite : Icons.favorite_border,
-                          key: ValueKey<bool>(isFavorite),
-                          color: isFavorite ? Colors.red : Colors.grey,
-                          size: 30,
-                        ),
-                      ),
-                    ),
-                  ],
+                Text(
+                  cancion.nombre,
+                  style: const TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  '${args['listeners']} Reproducciones',
+                  '${cancion.reproducciones} Reproducciones',
                   style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Género: ${args['genre']}',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  'Género: ${cancion.genero}',
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 16),
                 Text(
@@ -100,7 +106,7 @@ class _CancionesScreenItemState extends State<CancionesScreenItem> {
                 const SizedBox(height: 80),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children: const [
                     Icon(Icons.alternate_email, size: 30),
                     Icon(Icons.share, size: 30),
                   ],
@@ -113,3 +119,6 @@ class _CancionesScreenItemState extends State<CancionesScreenItem> {
     );
   }
 }
+
+
+
