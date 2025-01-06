@@ -1,5 +1,8 @@
+import 'dart:async';
 import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:spotyland/widgets/drawer_menu.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,9 +14,57 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isPlaying = false;
+  final AudioPlayer _audioPlayer = AudioPlayer();
+  Duration _currentPosition = Duration.zero;
+  final Duration _totalDuration = Duration(minutes: 3, seconds: 37);
+
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer.onPositionChanged.listen((position) {
+      setState(() {
+        _currentPosition = position;
+      });
+    });
+
+    _audioPlayer.onPlayerComplete.listen((event) {
+      setState(() {
+        isPlaying = false;
+        _currentPosition = Duration.zero;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void _playPauseAudio() async {
+    if (isPlaying) {
+      await _audioPlayer.pause();
+    } else {
+      await _audioPlayer.play(AssetSource('mp3/nueva_era.mp3'));
+    }
+    setState(() {
+      isPlaying = !isPlaying;
+    });
+  }
+
+  String _formatDuration(Duration duration) {
+    final minutes = duration.inMinutes.remainder(60).toString().padLeft(2, '0');
+    final seconds = duration.inSeconds.remainder(60).toString().padLeft(2, '0');
+    return "$minutes:$seconds";
+  }
 
   @override
   Widget build(BuildContext context) {
+    final progress = _currentPosition.inSeconds / _totalDuration.inSeconds;
+
     return Scaffold(
       drawer: DrawerMenu(),
       appBar: AppBar(
@@ -80,23 +131,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 20),
                 Slider(
-                  value: 30,
-                  max: 60,
+                  value: progress.isNaN ? 0 : progress,
+                  max: 1,
                   min: 0,
                   activeColor: Colors.white,
                   inactiveColor: Colors.white24,
-                  onChanged: (value) {},
+                  onChanged: (value) async {
+                    final newPosition = Duration(
+                        seconds: (value * _totalDuration.inSeconds).toInt());
+                    await _audioPlayer.seek(newPosition);
+                  },
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       Text(
-                        "1:53",
-                        style: TextStyle(color: Colors.white70),
+                        _formatDuration(_currentPosition),
+                        style: const TextStyle(color: Colors.white70),
                       ),
-                      Text(
+                      const Text(
                         "3:37",
                         style: TextStyle(color: Colors.white70),
                       ),
@@ -108,13 +163,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
-                      icon: Icon(Icons.shuffle, color: Colors.white70),
+                      icon: const Icon(Icons.shuffle, color: Colors.white70),
                       onPressed: () {
                         log('Reproduccion aleatoria');
                       },
                     ),
                     IconButton(
-                      icon: Icon(Icons.skip_previous, color: Colors.white),
+                      icon: const Icon(Icons.skip_previous, color: Colors.white),
                       iconSize: 36,
                       onPressed: () {
                         log('Anterior');
@@ -122,26 +177,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     IconButton(
                       icon: Icon(
-                        isPlaying ? Icons.stop_circle : Icons.play_circle_fill,
+                        isPlaying
+                            ? Icons.pause_circle_filled
+                            : Icons.play_circle_fill,
                         color: Colors.white,
                       ),
                       iconSize: 64,
-                      onPressed: () {
-                        setState(() {
-                          isPlaying = !isPlaying;
-                        });
-                        log(isPlaying ? 'Cancion pausada' : 'Reproduciendo');
-                      },
+                      onPressed: _playPauseAudio,
                     ),
                     IconButton(
-                      icon: Icon(Icons.skip_next, color: Colors.white),
+                      icon: const Icon(Icons.skip_next, color: Colors.white),
                       iconSize: 36,
                       onPressed: () {
                         log('Siguiente');
                       },
                     ),
                     IconButton(
-                      icon: Icon(Icons.repeat, color: Colors.white70),
+                      icon: const Icon(Icons.repeat, color: Colors.white70),
                       onPressed: () {
                         log('Repetir');
                       },

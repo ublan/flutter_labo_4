@@ -6,7 +6,16 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Preferences.initShared(); 
+
+  // Cargar las variables de entorno solo si no estamos en Web
+  // if (!Foundation.kIsWeb) {
+  //   await dotenv.load(); // Cargar el archivo .env
+  //   // Verificar si la variable 'API_URL' se cargó correctamente
+  //   print(dotenv.env['API_URL'] ?? 'API_URL no cargada'); // Imprime la URL o el mensaje de error
+  // }
+
+  // Inicializar preferencias
+  await Preferences.initShared();
 
   runApp(MultiProvider(
     providers: [
@@ -37,6 +46,8 @@ class MyApp extends StatelessWidget {
           'canciones_screen_item': (context) => CancionesScreenItem(),
           'playlist_item_card': (context) => PlaylistScreenItem(),
           'playlists': (context) => PlaylistScreen(),
+          'albums_screen_item': (context) => AlbumsScreenItem(),
+          'albums': (context) => AlbumsScreen(),
         }
         );
   }

@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
+import 'playlist.dart';
 
 class PlaylistScreenItem extends StatelessWidget {
   const PlaylistScreenItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    
+    final playlist = ModalRoute.of(context)!.settings.arguments as Datum?;
+
+   
+    final playlistData = playlist ?? Datum(
+      avatar: 'avatar1',
+      nameplaylist: 'Mi Playlist',
+      cantidad: 10,
+      favorites: true,
+      idplaylist: 'id1',
+    );
 
     final backgroundColor = Theme.of(context).scaffoldBackgroundColor;
     final cardColor = Theme.of(context).cardColor;
@@ -15,16 +26,17 @@ class PlaylistScreenItem extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          args['name'],
+          playlistData.nameplaylist,
           style: TextStyle(color: textColor),
         ),
         actions: [
           IconButton(
             icon: Icon(
-              args['favorite'] ? Icons.favorite : Icons.favorite_border,
-              color: args['favorite'] ? Colors.red : iconColor,
+              playlistData.favorites ? Icons.favorite : Icons.favorite_border,
+              color: playlistData.favorites ? Colors.red : iconColor,
             ),
             onPressed: () {
+             
             },
           ),
         ],
@@ -41,8 +53,10 @@ class PlaylistScreenItem extends StatelessWidget {
                   height: 250,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/avatars/${args['avatar']}.png'),
-                      fit: BoxFit.contain,
+                      image: playlistData.avatar.startsWith('http')
+                          ? NetworkImage(playlistData.avatar)
+                          : AssetImage('assets/avatars/${playlistData.avatar}.png') as ImageProvider,
+                      fit: BoxFit.cover,
                       colorFilter: ColorFilter.mode(
                         Colors.black.withOpacity(0.6),
                         BlendMode.darken,
@@ -54,8 +68,8 @@ class PlaylistScreenItem extends StatelessWidget {
                   bottom: 16,
                   left: 16,
                   child: Text(
-                    args['name'],
-                    style: TextStyle(
+                    playlistData.nameplaylist,
+                    style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -71,7 +85,7 @@ class PlaylistScreenItem extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: cardColor,
                   borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.black26,
                       blurRadius: 10,
@@ -83,25 +97,32 @@ class PlaylistScreenItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${args['cantidad']} canciones',
+                      '${playlistData.cantidad} canciones',
                       style: TextStyle(fontSize: 16, color: textColor),
                     ),
                     const SizedBox(height: 8),
                     Row(
-                      children: List.generate(5, (index) => Icon(Icons.star, color: Colors.amber, size: 20)),
+                      children: List.generate(
+                        5,
+                        (index) => const Icon(Icons.star, color: Colors.amber, size: 20),
+                      ),
                     ),
                     const SizedBox(height: 16),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         IconButton(
-                          icon: Icon(Icons.play_arrow, size: 30, color: iconColor),
+                          icon: Icon(Icons.play_arrow, size: 50, color: iconColor),
                           onPressed: () {
+                           
                           },
                         ),
-                        Icon(Icons.music_note, size: 30, color: iconColor),
-                        Icon(Icons.share, size: 30, color: iconColor),
-                        Icon(Icons.more_vert, size: 30, color: iconColor),
+                        IconButton(
+                          icon: Icon(Icons.shuffle, size: 50, color: iconColor),
+                          onPressed: () {
+                            
+                          },
+                        ),
                       ],
                     ),
                   ],
@@ -110,22 +131,6 @@ class PlaylistScreenItem extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Inicio',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Buscar',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.library_music),
-            label: 'Tu biblioteca',
-          ),
-        ],
       ),
     );
   }
